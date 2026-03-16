@@ -30,25 +30,27 @@ open_data_storytelling/
 ```
 
 ### สถาปัตยกรรมภายใน Notebook (Separation of Concerns - SoC)
-สมุดโน้ต `01_data_story.ipynb` ได้รับการ Refactor เพื่อลบความเป็น Monolithic (โค้ดยาวติดกัน) ออก และแบ่งเป็น **10 เซลล์ (Cells)** ที่แยกหน้าที่กันอย่างชัดเจนตามหลัก **Single Responsibility Principle (SRP)** พร้อมแทรกร้อยเรียงเรื่องราว (Storytelling Narrative Flow) ด้วย Markdown ดังนี้:
+สมุดโน้ต `01_data_story.ipynb` ได้รับการ Refactor อย่างสมบูรณ์ เพื่อลบความเป็น Monolithic (โค้ดยาวติดกัน) ออก และแบ่งเป็น **12 เซลล์ (Cells)** ที่แยกหน้าที่กันอย่างชัดเจนตามหลัก **Single Responsibility Principle (SRP)** พร้อมร้อยเรียงเรื่องราว (Storytelling Narrative Flow) ไว้ดังนี้:
 
 **ส่วนที่ 1: การตั้งค่าพื้นฐาน (Foundation)**
 *   **Cell 0 (Markdown):** แนะนำหัวข้อการนำเสนอ, ภาพรวม, ชุดข้อมูล, และ Roadmap นำทาง
-*   **Cell 1 (Code - Dependency):** ศูนย์รวมไลบรารีที่จำเป็นทั้งหมด (pandas, numpy, plotly) ป้องกันการนำเข้าซ้ำซ้อนในเซลล์อื่น
-*   **Cell 2 (Code - Config & Helper):** กำหนด Design System ระบบสี (Color Palette) และฟังก์ชันเพื่อตกแต่งกราฟแบบ Premium Dark Theme 
+*   **Cell 1 (Code - Dependency):** ศูนย์รวมไลบรารีที่จำเป็น รวมถึงการติดตั้งโมดูลพิเศษ (`pycountry`) ที่จำเป็นต่อการแปลงประเทศ
+*   **Cell 2 (Code - Config & Helper):** กำหนด Design System ระบบสี (Color Palette) และฟังก์ชันเพื่อคุมโทนกราฟให้เป็น Premium Dark Theme 
 
 **ส่วนที่ 2: การประมวลผลและเตรียมข้อมูล (Data Processing)**
-*   **Cell 3 (Code - ETL):** การโหลดไฟล์ CSV, การลีนข้อมูล (ลบซ้ำซ้อน, จัดการ NA), วิศวกรรมฟีเจอร์ (Feature Engineering), และพิมพ์สรุป Log ข้อมูลที่พร้อมใช้งาน
+*   **Cell 3 (Code - ETL):** การโหลดไฟล์ CSV, การลีนข้อมูล, การคำนวณราคาต่อหน่วย, แปลงพิกัดรหัสประเทศ (ISO-3), และพิมพ์สรุป Log ก่อนวิเคราะห์
 
-**ส่วนที่ 3: การสำรวจข้อมูลและค้นหา Insight (EDA & Deep Dive)**
-*   **Cell 4 (Markdown):** อธิบาย "กลยุทธ์และเหตุผล" ว่าเหตุใดจึงเลือกใช้ Log Transform กับชุดข้อมูลนี้
+**ส่วนที่ 3: การสำรวจข้อมูลและค้นหา Insight (EDA & Geospatial Deep Dive)**
+*   **Cell 4 (Markdown):** อธิบาย "กลยุทธ์และเหตุผลที่ 1" ว่าเหตุใดจึงเลือกใช้ Log Transform กับชุดข้อมูลนี้
 *   **Cell 5 (Code - Distribution):** โค้ดแสดงความถี่ของตัวแปรเป้าหมายผ่าน Histogram และ Boxplot ด้วย Plotly
-*   **Cell 6 (Markdown):** สรุป Insight เบื้องต้น และตั้งคำถามเชื่อมโยง (Bridge Question) ไปสู่ประเด็นที่เจาะลึกขึ้น
-*   **Cell 7 (Code - Deep Dive):** วิเคราะห์แบบ 4 มิติด้วย Interactive Scatter Plot หาสินค้า "Hidden Gem" (รายได้สูง, น้ำหนักน้อย)
+*   **Cell 6 (Markdown):** อธิบาย "กลยุทธ์และเหตุผลที่ 2" สู่การนำร่องวิเคราะห์พิกัดโลกด้วยแผนที่ 3D ยุคใหม่
+*   **Cell 7 (Code - Global Footprint):** วาดแผนที่ 3D Orthographic Globe หมุนได้ พร้อมตารางอันดับ Top 10 อัตโนมัติด้วย Subplots แบบหน้าปัดเดียว (Dual-view)
+*   **Cell 8 (Markdown):** สรุป Insight เบื้องต้น และตั้งคำถามเชื่อมโยง (Bridge Question) ไปสู่ประเด็นสุดท้าย
+*   **Cell 9 (Code - Scatter Deep Dive):** วิเคราะห์แบบ 4 มิติด้วย Interactive Scatter Plot หาสินค้า "Hidden Gem" (รายได้สูง, น้ำหนักน้อย)
 
 **ส่วนที่ 4: สรุปและสะท้อนผล (Actionable Conclusion)**
-*   **Cell 8 (Markdown):** อธิบาย "เหตุผลในการเลือกชนิดกราฟ" และสรุปข้อเสนอแนะเชิงนโยบาย (Actionable Recommendation) แก่รัฐและภาคเอกชน
-*   **Cell 9 (Code - Dashboard):** สร้างกระดาน KPI สรุปตัวเลขเศรษฐกิจมูลค่ารวม 6 มิติ ให้เห็นภาพรวมทั้งหมดได้อย่างรวดเร็ว
+*   **Cell 10 (Markdown):** อธิบาย "เหตุผลในการเลือกชนิดกราฟ" และสรุปข้อเสนอแนะเชิงนโยบาย (Actionable Recommendation) แก่รัฐและภาคเอกชน
+*   **Cell 11 (Code - Dashboard):** สร้างกระดาน KPI สรุปตัวเลขเศรษฐกิจมูลค่ารวม 6 มิติ ให้เห็นภาพรวมทั้งหมดได้อย่างรวดเร็ว
 
 ---
 
