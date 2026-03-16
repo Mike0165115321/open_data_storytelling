@@ -54,6 +54,20 @@ open_data_storytelling/
 
 ---
 
+## 📸 ตัวอย่างหน้าจอการวิเคราะห์ (Visualizations Gallery)
+*(คุณสามารถนำภาพ Screenshot จาก Notebook มาบันทึกทับในโฟลเดอร์ `assets/` ด้วยชื่อไฟล์ด้านล่าง ภาพจะตื่นขึ้นมาแสดงทับทันที)*
+
+<div align="center">
+  <img src="assets/dist.png" alt="Distribution Analysis Placeholder" width="48%">
+  <img src="assets/geo_map.png" alt="Global Footprint 3D Map Placeholder" width="48%">
+</div>
+<div align="center">
+  <img src="assets/scatter_gem.png" alt="4D Scatter Plot Deep Dive Placeholder" width="48%">
+  <img src="assets/kpi_board.png" alt="KPI Dashboard Placeholder" width="48%">
+</div>
+
+---
+
 ## ⚡ การเพิ่มประสิทธิภาพเชิงรุก (Proactive Optimization)
 
 นอกจากการจัดโครงสร้างให้อ่านและรักษาง่ายแล้ว โปรเจกต์นี้ยังให้ความสำคัญกับการจัดการทรัพยากร (Resource Efficiency) อีกด้วย:
