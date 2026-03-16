@@ -55,7 +55,6 @@ open_data_storytelling/
 ---
 
 ## 📸 ตัวอย่างหน้าจอการวิเคราะห์ (Visualizations Gallery)
-*(คุณสามารถนำภาพ Screenshot จาก Notebook มาบันทึกทับในโฟลเดอร์ `assets/` ด้วยชื่อไฟล์ด้านล่าง ภาพจะตื่นขึ้นมาแสดงทับทันที)*
 
 <div align="center">
   <img src="assets/dist.png" alt="Distribution Analysis Placeholder" width="48%">
